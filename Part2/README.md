@@ -5,7 +5,7 @@ This iteration of the BashBook project has updated the scripts to enable multipl
 
 ## Usage
 
-To utilize these scripts, open a terminal and navigate to the directory where the scripts are stored.
+To utilize these scripts, open a terminal and navigate to the Server directory where the scripts are stored.
 
 To start the server, input the command ./server.sh.
 
