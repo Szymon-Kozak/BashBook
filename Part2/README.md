@@ -5,10 +5,10 @@ The second version of the BashBook project introduces multi-user compatibility, 
 
 ## 🔧 Features & Scripts
 
-### 1. Friendship Establishment: `add.sh`
-- **Usage:** `add [friend_id]`
-- **Description:** Instigates a friendship between two users.
-- **Outcome:** The friend's ID is appended to the initiator's `friends.txt`.
+### 1. Server Operations: `server.sh`
+- **Usage:** `./server.sh`
+- **Description:** The main server script. Processes client requests and invokes the appropriate scripts.
+- **Outcome:** Reads and acts on requests from individual client pipes.
 
 ### 2. Client Interface: `client.sh`
 - **Usage:** `./client.sh [id]`
@@ -20,20 +20,20 @@ The second version of the BashBook project introduces multi-user compatibility, 
 - **Description:** Constructs a new user profile.
 - **Outcome:** Forms a new directory with the designated ID in the Users directory.
 
-### 4. Wall Display: `display.sh`
-- **Usage:** `display`
-- **Description:** Reveals the content of a user's message wall.
-- **Outcome:** Outputs the entirety of the user's `wall.txt` to the console.
+### 4. Friendship Establishment: `add.sh`
+- **Usage:** `add [friend_id]`
+- **Description:** Instigates a friendship between two users.
+- **Outcome:** The friend's ID is appended to the initiator's `friends.txt`.
 
 ### 5. Message Posting: `post.sh`
 - **Usage:** `post [receiver_id] [message]`
 - **Description:** Enables a user to post messages on another's wall.
 - **Outcome:** The message gets added to the receiver's `wall.txt`.
 
-### 6. Server Operations: `server.sh`
-- **Usage:** `./server.sh`
-- **Description:** The main server script. Processes client requests and invokes the appropriate scripts.
-- **Outcome:** Reads and acts on requests from individual client pipes.
+### 6. Wall Display: `display.sh`
+- **Usage:** `display`
+- **Description:** Reveals the content of a user's message wall.
+- **Outcome:** Outputs the entirety of the user's `wall.txt` to the console.
 
 ## 🗂 Directory Structure
 
@@ -48,4 +48,4 @@ Comprehensive error handling is integrated into every script. If operations are 
 
 ## 🔍 Getting Started
 
-Kick-off by directing to the `Server` directory containing the scripts. Boot the server with `./server.sh`. To interact, open another terminal, ensure you're in the project directory, and then initiate `./client.sh [id]`, replacing `[id]` with a user name.
+Start by directing to the `Server` directory containing the scripts. Boot the server with `./server.sh`. To interact, open another terminal, ensure you're in the project directory, and then initiate `./client.sh [id]`, replacing `[id]` with a user name.
