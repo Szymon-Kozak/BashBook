@@ -1,46 +1,51 @@
-# Part 2 - README
+# BashBook v2: Multi-User Support
 
-## Introduction
-This iteration of the BashBook project has updated the scripts to enable multiple users to simultaneously connect and run commands on the server. To facilitate this, a client application (client.sh) is introduced which interacts with the server (server.sh) via named pipes.
+## Overview
+The second version of the BashBook project introduces multi-user compatibility, allowing several users to concurrently connect and perform operations on the server. This enhancement is achieved via a new client application (`client.sh`) that liaises with the server (`server.sh`) using named pipes.
 
-## Usage
+## 🔧 Features & Scripts
 
-To utilize these scripts, open a terminal and navigate to the Server directory where the scripts are stored.
+### 1. Friendship Establishment: `add.sh`
+- **Usage:** `add [friend_id]`
+- **Description:** Instigates a friendship between two users.
+- **Outcome:** The friend's ID is appended to the initiator's `friends.txt`.
 
-To start the server, input the command ./server.sh.
+### 2. Client Interface: `client.sh`
+- **Usage:** `./client.sh [id]`
+- **Description:** Acts as the user's interface to send requests to the server.
+- **Outcome:** Sends user operations to the server through named pipes.
 
-In a separate terminal (ensuring you're in the same project directory), input ./client.sh [id], replacing [id] with a user identifier.
+### 3. User Creation: `create.sh`
+- **Usage:** `create`
+- **Description:** Constructs a new user profile.
+- **Outcome:** Forms a new directory with the designated ID in the Users directory.
 
+### 4. Wall Display: `display.sh`
+- **Usage:** `display`
+- **Description:** Reveals the content of a user's message wall.
+- **Outcome:** Outputs the entirety of the user's `wall.txt` to the console.
 
-From here, the following commands can be executed:
+### 5. Message Posting: `post.sh`
+- **Usage:** `post [receiver_id] [message]`
+- **Description:** Enables a user to post messages on another's wall.
+- **Outcome:** The message gets added to the receiver's `wall.txt`.
 
-create - Creates a new user profile. A new directory with the given id will be created in the Users directory.
+### 6. Server Operations: `server.sh`
+- **Usage:** `./server.sh`
+- **Description:** The main server script. Processes client requests and invokes the appropriate scripts.
+- **Outcome:** Reads and acts on requests from individual client pipes.
 
-add [friend_id] - Adds a friendship relationship. The id of the friend will be added to the user's friends.txt file.
+## 🗂 Directory Structure
 
-post [receiver_id] [message] - Posts a message on a friend's wall. The message will be added to the friend's wall.txt file.
+User profiles of BashBook reside beside the bash scripts. Within each user directory are:
 
-display - Displays the user's wall. The contents of the wall.txt file will be printed on the console.
+- `friends.txt`: A ledger of the user's friendships.
+- `wall.txt`: A compendium of messages addressed to the user.
 
-## Scripts
+## ⚙️ Error Handling
 
-This project is composed of six bash scripts:
+Comprehensive error handling is integrated into every script. If operations are unsatisfactory, a "nok" message will be relayed to the user.
 
-1. `add.sh` : Creates a friend relationship between User A and User B. The friendship is recorded in User A's friend list.
+## 🔍 Getting Started
 
-2. `client.sh` : The client script, which sends user requests to the server via named pipes.
-
-3. `create.sh` : Generates a new user profile and saves it in the User directory.
-
-4. `display.sh` : Displays the contents of a user's wall.
-
-5. `post.sh` : Allows users to post text messages on other users' walls.
-
-6. `server.sh` : Reads requests from the unique client pipes, then executes the requested action by calling the appropriate script.
-
-The user profiles for BashBook are stored alongside the bash scripts. The profile directories contain two files:
-
-    friends.txt - Stores the user's friend relationships; can be modified by the add.sh script and accessed by the post.sh script.
-    wall.txt - Stores the user's wall, i.e., messages sent to them; can be modified by the post.sh script and accessed by the display.sh script.
-
-Each script includes error handling to output a "nok" message if an error occurs during execution.
+Kick-off by directing to the `Server` directory containing the scripts. Boot the server with `./server.sh`. To interact, open another terminal, ensure you're in the project directory, and then initiate `./client.sh [id]`, replacing `[id]` with a user name.
